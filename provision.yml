@@ -1,0 +1,26 @@
+#cloud-config
+package_upgrade: true
+
+apt:
+  preserve_sources_list: true
+  sources:
+    docker-ce.list:
+      source: "deb [arch=amd64] https://download.docker.com/linux/ubuntu $RELEASE stable"
+      keyid: 0EBFCD88
+
+users:
+  - default
+  - name: bwilson
+    gecos: Ben Wilson
+    primary_group: bwilson
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin, docker
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEvg+VqikXtwXPdnWxeuL2hZQnk4Fv5Ft/B2LstjYEYyHcYqeUDiWY+nszyUX+Vr+RKtbSObQQv0GGqNc2wR87KnG+HbBVe+lHitrXrkEb0WWeI8TlwvJa9qN0iGYdlIWgZ8fogjWxgMt/ciFxUlASjcdWa4jZqGL5abZJj7VQA8CwJUZTJQUxMeWTXnmNyTokw/YKrpT0Rl9C0sg86xcxkgWDDtldFiWJyCil0DpGXS8MQP15xMBV1rsW/l4YUZqKiotzVw8nT7kBnqoUohdAdi9UF+A/LtAruc10uJ47/2G1w4Yyuriz48LynG69u31iroSewkQ2LfG77tBp9YBx doubtingben@penguin
+
+packages:
+  - pkg-config
+  - nmap
+  - tcpdump
+  - unzip
+  - docker-ce
