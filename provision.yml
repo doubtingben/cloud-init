@@ -12,6 +12,7 @@ users:
   - default
   - name: bwilson
     gecos: Ben Wilson
+    shell: /bin/bash
     primary_group: bwilson
     sudo: ALL=(ALL) NOPASSWD:ALL
     groups: users, admin, docker
@@ -24,3 +25,4 @@ packages:
   - tcpdump
   - unzip
   - docker-ce
+  - pass
